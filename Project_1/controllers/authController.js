@@ -4,7 +4,6 @@ const bcrypt=require('bcryptjs');
 
 const sendGrid=require('@sendgrid/mail');
 const SEND_GRID_API=process.env.SEND_GRID_KEY;
-// "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"
 const {
   firstNameValidation,
   lastNameValidation,
