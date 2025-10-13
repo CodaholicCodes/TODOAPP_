@@ -1,0 +1,81 @@
+<header class="w-full absolute top-0 left-0 z-50 flex justify-center mt-6">
+        <nav class="w-full max-w-5xl mx-auto glass-effect bg-white/80 rounded-2xl shadow-xl flex items-center px-8 py-4 gap-6 border border-white/20 justify-between">
+
+            <!-- Left: Primary navigation -->
+            <div class="flex items-center gap-6">
+            
+                <a href="/" class="flex items-center gap-3 px-6 py-3 rounded-xl font-semibold text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-300 hover-lift">
+                    <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9 9 9M4 10v10a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V10"/>
+                    </svg>
+                    <span class="text-lg">Home</span>
+                </a>
+
+                <% if(isLoggedIn) { %>
+                <% if(user.role==='host') { %>
+                <a href="/host/add-home" class="flex items-center gap-3 px-6 py-3 rounded-xl font-semibold text-gray-700 hover:bg-gradient-to-r hover:from-pink-50 hover:to-rose-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-pink-300 hover-lift">
+                    <svg class="w-6 h-6 text-pink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l9 9-1.5 1.5M21 12v7a2 2 0 01-2 2h-3a2 2 0 01-2-2v-4H10v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-7M9 21V9a3 3 0 016 0v12"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 7h4m-2-2v4"/>
+                    </svg>
+                    <span class="text-lg">Add Home</span>
+                </a>
+                <a href="/host/host-homes" class="flex items-center gap-3 px-6 py-3 rounded-xl font-semibold text-gray-700 hover:bg-gradient-to-r hover:from-pink-50 hover:to-rose-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-pink-300 hover-lift">
+                    <svg class="w-6 h-6 text-pink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l9 9-1.5 1.5M21 12v7a2 2 0 01-2 2h-3a2 2 0 01-2-2v-4H10v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-7M9 21V9a3 3 0 016 0v12"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 7h4m-2-2v4"/>
+                    </svg>
+                    <span class="text-lg">Host Homes</span>
+                </a>
+                   <% } else { %>
+                    
+                <a href="/homes" class="flex items-center gap-3 px-6 py-3 rounded-xl font-semibold text-gray-700 hover:bg-gradient-to-r hover:from-pink-50 hover:to-rose-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-pink-300 hover-lift">
+                    <svg class="w-6 h-6 text-pink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l9 9-1.5 1.5M21 12v7a2 2 0 01-2 2h-3a2 2 0 01-2-2v-4H10v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-7M9 21V9a3 3 0 016 0v12"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 7h4m-2-2v4"/>
+                    </svg>
+                    <span class="text-lg">Homes</span>
+                </a>
+                <a href="/favourites" class="flex items-center gap-3 px-6 py-3 rounded-xl font-semibold text-gray-700 hover:bg-gradient-to-r hover:from-pink-50 hover:to-rose-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-pink-300 hover-lift">
+                    <svg class="w-6 h-6 text-pink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l9 9-1.5 1.5M21 12v7a2 2 0 01-2 2h-3a2 2 0 01-2-2v-4H10v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-7M9 21V9a3 3 0 016 0v12"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 7h4m-2-2v4"/>
+                    </svg>
+                    <span class="text-lg">Favourites</span>
+                </a>
+                <% } %>
+                <%} else { %>
+                <a href="/homes" class="flex items-center gap-3 px-6 py-3 rounded-xl font-semibold text-gray-700 hover:bg-gradient-to-r hover:from-pink-50 hover:to-rose-50 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-pink-300 hover-lift">
+                    <svg class="w-6 h-6 text-pink-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l9 9-1.5 1.5M21 12v7a2 2 0 01-2 2h-3a2 2 0 01-2-2v-4H10v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-7M9 21V9a3 3 0 016 0v12"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M16 7h4m-2-2v4"/>
+                    </svg>
+                    <span class="text-lg">Homes</span>
+                </a>
+                <% } %>
+            </div>
+
+            <!-- Right: Inline greeting + Auth actions (Login / Logout) -->
+            <div class="ml-auto flex items-center gap-4">
+             
+                <% if(!isLoggedIn) { %>
+                <a href="/auth/login" class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-semibold text-white bg-gradient-to-r from-fuchsia-500 via-pink-500 to-rose-500 shadow-lg shadow-rose-200/60 hover:shadow-rose-300/70 hover:from-fuchsia-600 hover:to-rose-600 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-rose-300">
+                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H3m6-6l-6 6 6 6"/>
+                    </svg>
+                    <span class="text-base">Login</span>
+                </a>
+                <% } else { %>
+                <form action="/auth/logout" method="POST">
+                    <button type="submit" class="inline-flex items-center gap-2 px-6 py-3 rounded-2xl font-semibold text-white bg-gradient-to-r from-rose-500 via-red-500 to-orange-500 shadow-lg shadow-orange-200/60 hover:shadow-orange-300/70 hover:from-rose-600 hover:to-orange-600 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-orange-300">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                        </svg>
+                        <span class="text-base">Logout</span>
+                    </button>
+                </form>
+                <% } %>
+            </div>
+
+        </nav>
+    </header>

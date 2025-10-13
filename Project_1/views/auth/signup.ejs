@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= pageTitle %></title>
+  <link rel="stylesheet" href="/styles/output.css">
+</head>
+<body class="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-800 flex items-center justify-center">
+  <form action="/auth/signup" method="POST" class="bg-white/90 shadow-xl rounded-xl px-8 py-10 w-full max-w-md" novalidate>
+    <h1 class="text-3xl font-bold text-center text-indigo-900 mb-8 tracking-tight"><%= pageTitle %></h1>
+    <div class="space-y-6">
+<%-include('../partials/error-message') %>
+
+<div>
+  <label for="FirstName" class="block text-sm font-medium text-indigo-900 mb-1">FirstName</label>
+  <input 
+    type="text" 
+    name="FirstName" 
+    value="<%=typeof oldInput !== 'undefined' ? oldInput.FirstName : '' %>"
+    id="FirstName"
+    placeholder="Enter your FirstName" 
+    class="w-full px-4 py-2 rounded-lg border <%= hasErrors ? 'border-red-400' : 'border-indigo-300' %> focus:outline-none focus:ring-2 <%= hasErrors ? 'focus:ring-red-500' : 'focus:ring-indigo-500' %> transition"
+  >
+</div>
+<div>
+  <label for="LastName" class="block text-sm font-medium text-indigo-900 mb-1">LastName</label>
+  <input 
+    type="text" 
+    name="LastName" 
+    value="<%=typeof oldInput !== 'undefined' ? oldInput.LastName : '' %>"
+    id="LastName"
+    placeholder="Enter your LastName" 
+    class="w-full px-4 py-2 rounded-lg border <%= hasErrors ? 'border-red-400' : 'border-indigo-300' %> focus:outline-none focus:ring-2 <%= hasErrors ? 'focus:ring-red-500' : 'focus:ring-indigo-500' %> transition"
+  >
+</div>
+<div>
+  <label for="email" class="block text-sm font-medium text-indigo-900 mb-1">Email</label>
+  <input 
+    type="email" 
+    name="email" 
+    value="<%=typeof oldInput !== 'undefined' ? oldInput.email : '' %>"
+    id="email"
+    placeholder="Enter your Email" 
+    class="w-full px-4 py-2 rounded-lg border <%= hasErrors ? 'border-red-400' : 'border-indigo-300' %> focus:outline-none focus:ring-2 <%= hasErrors ? 'focus:ring-red-500' : 'focus:ring-indigo-500' %> transition"
+    
+  >
+</div>
+<div>
+  <label for="password" class="block text-sm font-medium text-indigo-900 mb-1">Password</label>
+  <input 
+    type="password" 
+    name="password" 
+    value="<%=typeof oldInput !== 'undefined' ? oldInput.password : '' %>"
+    id="password"
+    placeholder="Enter your password" 
+    class="w-full px-4 py-2 rounded-lg border <%= hasErrors ? 'border-red-400' : 'border-indigo-300' %> focus:outline-none focus:ring-2 <%= hasErrors ? 'focus:ring-red-500' : 'focus:ring-indigo-500' %> transition"
+  >
+</div>
+<div>
+  <label for="confirmPassword" class="block text-sm font-medium text-indigo-900 mb-1">Confirm Password</label>
+  <input 
+    type="password" 
+    name="confirmPassword" 
+    value="<%=typeof oldInput !== 'undefined' ? oldInput.confirmPassword : '' %>"
+    id="confirmPassword"
+    placeholder="Confirm your password" 
+    class="w-full px-4 py-2 rounded-lg border <%= hasErrors ? 'border-red-400' : 'border-indigo-300' %> focus:outline-none focus:ring-2 <%= hasErrors ? 'focus:ring-red-500' : 'focus:ring-indigo-500' %> transition"
+  >
+</div>
+<!-- Choice type UI for Host or Customer -->
+<div>
+  <span class="block text-sm font-medium text-indigo-900 mb-1">Sign up as</span>
+  <div class="flex items-center gap-6">
+    <label class="inline-flex items-center">
+      <input type="radio" 
+      name="role" 
+      value="customer" 
+         <%=typeof oldInput !== 'undefined' && oldInput.role=='customer' ? 'checked' : ''%>
+      class="form-radio text-indigo-600" > 
+      <span class="ml-2 text-indigo-800">Customer</span>
+    </label>
+    <label class="inline-flex items-center">
+      <input type="radio"
+       name="role" 
+       value="host" 
+            <%=typeof oldInput !== 'undefined' && oldInput.role=='host' ? 'checked' : ''%>
+       class="form-radio text-purple-600" >
+      <span class="ml-2 text-purple-800">Host</span>
+    </label>
+  </div>
+</div>
+<!-- Terms and Conditions -->
+<div class="bg-indigo-50 border border-indigo-200 rounded-lg p-4 mb-2">
+  <h2 class="text-sm font-semibold text-indigo-900 mb-2">Terms and Conditions</h2>
+  <ul class="list-disc list-inside text-xs text-indigo-800 space-y-1">
+    <li>You must be at least 18 years old to register.</li>
+    <li>All information provided must be accurate and up to date.</li>
+    <li>Hosts are responsible for the accuracy of their listings.</li>
+    <li>Customers agree to respect the property and rules of hosts.</li>
+    <li>Any misuse of the platform may result in account suspension.</li>
+  </ul>
+</div>
+<div class="flex items-center">
+  <input 
+    type="checkbox" 
+    name="acceptTerms" 
+    id="acceptTerms"
+    class="form-checkbox text-indigo-600"
+  >
+  <label for="acceptTerms" class="ml-2 text-sm text-indigo-900">I accept the <span class="underline">Terms and Conditions</span></label>
+</div>
+<div>
+  <input 
+    type="submit" 
+    value="Sign Up"
+    class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold py-2 rounded-lg shadow-md hover:from-indigo-700 hover:to-purple-700 transition"
+  >
+</div>
+</html>
