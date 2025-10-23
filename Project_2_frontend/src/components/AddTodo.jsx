@@ -17,7 +17,7 @@ console.log(todoDate,todoText);
   toDoText.current.value='';
   toDoDate.current.value='';
 
-    fetch("http://localhost:5000/todos", {
+    fetch("https://todoapp-hy56.onrender.com/todos", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

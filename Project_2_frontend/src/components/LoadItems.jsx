@@ -8,7 +8,7 @@ const LoadItems = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:5000/todos")
+    fetch("https://todoapp-hy56.onrender.com/todos")
       .then((res) => res.json())
       .then(items => {
         console.log('Server Items : ',items);
