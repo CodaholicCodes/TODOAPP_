@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import Button from "./Button";
 import { ThemeContext } from "../store/TodoItemsProvider";
 import { todoItemClientModel } from "../utils/ModelUtil";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const TodoItem = ({ id, toDoText, toDoDate , completed}) => {
   const { deleteTodoItem } = useContext(ThemeContext);
@@ -15,7 +16,7 @@ const TodoItem = ({ id, toDoText, toDoDate , completed}) => {
   });
 
   const ToggleComplete = () => {
-    fetch(`https://todoapp-hy56.onrender.com/todos/:${id}`, {
+    fetch(`${apiUrl}/todos/:${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -31,7 +32,7 @@ const TodoItem = ({ id, toDoText, toDoDate , completed}) => {
   };
 
   const deleteHandler = () => {
-    fetch(`https://todoapp-hy56.onrender.com/todos/:${id}`, {
+    fetch(`${apiUrl}/todos/:${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

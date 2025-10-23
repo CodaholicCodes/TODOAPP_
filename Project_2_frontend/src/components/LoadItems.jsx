@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { ThemeContext } from '../store/TodoItemsProvider';
 import { todoItemClientModel } from './../utils/ModelUtil';
+const apiUrl = import.meta.env.VITE_API_URL;
 
 const LoadItems = () => {
   const { currentItems, addAllTodoItem } = useContext(ThemeContext);
@@ -8,7 +9,7 @@ const LoadItems = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("https://todoapp-hy56.onrender.com/todos")
+    fetch(`${apiUrl}/todos`)
       .then((res) => res.json())
       .then(items => {
         console.log('Server Items : ',items);

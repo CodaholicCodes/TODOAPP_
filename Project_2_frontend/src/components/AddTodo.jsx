@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
 import Button from './Button'
-
+const apiUrl = import.meta.env.VITE_API_URL;
 import TodoItems from './TodoItems';
 import { useRef } from 'react';
 import { ThemeContext } from '../store/TodoItemsProvider';
@@ -17,7 +17,7 @@ console.log(todoDate,todoText);
   toDoText.current.value='';
   toDoDate.current.value='';
 
-    fetch("https://todoapp-hy56.onrender.com/todos", {
+    fetch(`${apiUrl}/todos`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
